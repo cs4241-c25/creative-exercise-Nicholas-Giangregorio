@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creative Exercise - Canvas</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1600" height="900" style="border:1px solid #000000;"></canvas>
+
+<script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.strokeStyle = "blue";
+    ctx.fillRect(1, 5, 150, 75);
+    ctx.strokeRect(1,5, 150,75);
+    ctx.stroke();
+
+    ctx.moveTo(0, 0);
+    ctx.lineTo(200, 100);
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "rgb(0 255 0 / 50%)";
+    ctx.lineCap = "round";
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    ctx.beginPath();
+
+    ctx.moveTo(200, 50);
+    ctx.lineTo(225, 50);
+    ctx.lineTo(250, 75);
+    ctx.lineTo(250, 100);
+    ctx.lineTo(225, 125);
+    ctx.lineTo(200, 125);
+    ctx.lineTo(175, 100);
+    ctx.lineTo(175, 75);
+    ctx.lineTo(200, 50);
+    ctx.strokeStyle = "rgb(130 20 200)";
+    ctx.stroke();
+
+    ctx.clearRect(135,30,75,45);
+
+    ctx.beginPath();
+    ctx.arc(1000, 250, 62.1, .25 * Math.PI, 1.25 * Math.PI);
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+    ctx.lineWidth = 6;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+
+
+
+    ctx.beginPath();
+    ctx.moveTo(800, 300);
+    ctx.quadraticCurveTo(950, 175, 230, 20);
+    ctx.stroke();
+
+    const grad=ctx.createLinearGradient(600,500, 1200,60);
+    grad.addColorStop(0, "pink");
+    grad.addColorStop(1, "lightblue");
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(600, 500, 1200, 60);
+
+    ctx.font = "50px Arial";
+    ctx.fillStyle = "red";
+    ctx.fillText("Welcome to THE PLACE",1000,80);
+
+    ctx.font = "30px Arial";
+    ctx.strokeStyle = grad;
+    ctx.shadowColor = "rgb(200,100,100)";
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.shadowBlur = 6;
+    ctx.strokeText("Home of the humble and graceful Skunk",900,800);
+    ctx.shadowColor = "white";
+
+
+    const grad2=ctx.createRadialGradient(150,400,15,140,410,30);
+    grad2.addColorStop(0,"red");
+    grad2.addColorStop(.2,"orange");
+    grad2.addColorStop(.4,"yellow");
+    grad2.addColorStop(.6,"green");
+    grad2.addColorStop(.8,"blue");
+    grad2.addColorStop(1,"purple");
+
+    ctx.beginPath();
+    ctx.arc(150, 400, 40, .1 * Math.PI, 1.9 * Math.PI);
+
+    ctx.fillStyle = grad2;
+    ctx.fill();
+
+</script>
+</body>
+</html>
